@@ -10,5 +10,5 @@ FROM alpine:3.23
 RUN apk add --no-cache ca-certificates tzdata
 COPY --from=builder /src/build/picoclaw-linux-amd64 /usr/local/bin/picoclaw
 RUN chmod +x /usr/local/bin/picoclaw
-ENTRYPOINT ["picoclaw"]
-CMD ["gateway"]
+
+CMD ["/bin/sh", "-c", "picoclaw gateway"]
